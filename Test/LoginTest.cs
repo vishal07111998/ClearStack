@@ -29,7 +29,7 @@ namespace Test
         [Test]
         public void ValidUser_LoginIntoApp_SuccessfullyLogin()
         {
-          string actualWelcomeText= _loginPageServices.LoginWithUsernameAndPassword(_driver);
+          string actualWelcomeText= _loginPageServices.LoginWithUsernameAndPassword(_driver,_testData.LoginUserName,_testData.LoginUserPassword);
           Assert.AreEqual(_testData.WelcomeText,actualWelcomeText,
           $"Expected Welcome Text {_testData.WelcomeText} Where As Actual Text {actualWelcomeText}");
         }

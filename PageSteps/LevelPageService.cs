@@ -15,7 +15,7 @@ namespace PageSteps
         {
             _levelPageLocators = new LevelPageLocators();
             _testData = new TestData();
-            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GLOBAL_TIMEOUT));
+            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GlobalTimeout));
         }
 
         public string EnterLevelData(IWebDriver driver, int levelValue)

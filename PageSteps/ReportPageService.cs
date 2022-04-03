@@ -15,7 +15,7 @@ namespace PageSteps
         {
             _reportPageLocators = new ReportPageLocators();
             _testData = new TestData();
-            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GLOBAL_TIMEOUT));
+            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GlobalTimeout));
         }
 
         public string GetReportText(IWebDriver driver)

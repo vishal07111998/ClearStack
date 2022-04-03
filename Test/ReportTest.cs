@@ -28,14 +28,14 @@ namespace ClearStack.Test
             _driver.Manage().Window.Maximize();
             _testData = new TestData();
             _driver.Url = _testData.Url;
+            string actualWelcomeText = _loginPageServices.LoginWithUsernameAndPassword(_driver, _testData.LoginUserName, _testData.LoginUserPassword);
+            _homePageService.NavigateToAddNewLevelPage(_driver);
 
         }
 
         [Test]
         public void ValidUser_ViewReports_DataVisible()
         {
-            string actualWelcomeText = _loginPageServices.LoginWithUsernameAndPassword(_driver);
-            _homePageService.NavigateToAddNewLevelPage(_driver);
             Random random = new Random();
             int levelEntry = random.Next();
             _levelPageService.EnterLevelData(_driver, levelEntry);

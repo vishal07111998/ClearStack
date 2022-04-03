@@ -17,18 +17,18 @@ namespace PageSteps
             _loginPageLocators = new LoginPageLocators();
             _homePageLocators= new HomePageLocators();
             _testData = new TestData();
-            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GLOBAL_TIMEOUT));
+            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GlobalTimeout));
         }
-        public string LoginWithUsernameAndPassword(IWebDriver driver)
+        public string LoginWithUsernameAndPassword(IWebDriver driver,string userName, string password)
         {
             // Enter UserName Or Email On Password Login Page
             _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id(_loginPageLocators.LoginUserName)));
             IWebElement element = driver.FindElement(By.Id(_loginPageLocators.LoginUserName));
-            element.SendKeys(_testData.LoginUserName);
+            element.SendKeys(userName);
 
             // Enter Password On Password Login Page
             _driverWait.Until(ExpectedConditions.ElementIsVisible(By.Id(_loginPageLocators.LoginUserPassword)));
-            driver.FindElement(By.Id(_loginPageLocators.LoginUserPassword)).SendKeys(_testData.LoginUserPassword);
+            driver.FindElement(By.Id(_loginPageLocators.LoginUserPassword)).SendKeys(password);
 
             // Login Into App
             _driverWait.Until(ExpectedConditions.ElementIsVisible(By.XPath(_loginPageLocators.LoginButton)));

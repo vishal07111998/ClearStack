@@ -15,7 +15,7 @@ namespace PageSteps
         {
             _homePageLocators = new HomePageLocators();
             _testData = new TestData();
-            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GLOBAL_TIMEOUT));
+            _driverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(_testData.GlobalTimeout));
         }
 
         public void NavigateToAddNewLevelPage(IWebDriver driver)

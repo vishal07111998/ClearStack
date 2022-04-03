@@ -28,14 +28,14 @@ namespace Test
             _testData = new TestData();
             _driver.Url = _testData.Url;
 
+            _loginPageServices.LoginWithUsernameAndPassword(_driver, _testData.LoginUserName, _testData.LoginUserPassword);
+
         }
 
         // This Test Verifies That New Level Can Be added 
         [Test]
         public void ValidUser_AddNewLevel_VerifyLevelAdded()
         {
-            string actualWelcomeText = _loginPageServices.LoginWithUsernameAndPassword(_driver);
-         
             _homePageService.NavigateToAddNewLevelPage(_driver);
 
             Random random = new Random();
@@ -45,7 +45,6 @@ namespace Test
             Assert.AreEqual(_testData.RecentEntries, actualLevelTableText, $"Actual Level Table Text {actualLevelTableText} where as Expected was {_testData.RecentEntries}");
 
             string actualLevelData = _levelPageService.GetLevelData(_driver);
-
             Assert.IsTrue(actualLevelData.Contains(levelEntry.ToString()), $"It Was Expected To Contain Value {levelEntry} Where As Actual Is {actualLevelData}");
         }
 
